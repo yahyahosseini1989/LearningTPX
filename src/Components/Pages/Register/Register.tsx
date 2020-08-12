@@ -6,7 +6,8 @@ export interface RegisterState {
   val: string;
   pageMode: string;
   Name: string;
-  Phone: number;
+  Phone: number | undefined;
+  email: string;
 }
 
 enum pageMode {
@@ -20,7 +21,8 @@ export class Register extends React.Component<RegisterProps, RegisterState> {
     val: "",
     pageMode: pageMode.STEP1,
     Name: "",
-    Phone: 0,
+    Phone: undefined,
+    email: '',
   };
 
   private NextHandler = () => {
