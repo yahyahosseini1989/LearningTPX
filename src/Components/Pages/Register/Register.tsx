@@ -8,6 +8,7 @@ export interface RegisterState {
   Name: string;
   Phone: number | undefined;
   email: string;
+  form: object;
 }
 
 enum pageMode {
@@ -21,24 +22,31 @@ export class Register extends React.Component<RegisterProps, RegisterState> {
     val: "",
     pageMode: pageMode.STEP1,
     Name: "",
-    Phone: undefined,
+    Phone: 0,
     email: '',
+    form: {
+      name: "",
+      phone: "",
+    }
   };
 
   private NextHandler = () => {
     this.setState({
       ...this.state,
+      Name: "",
       pageMode: pageMode.STEP2,
     });
+
   };
   private PrevHandler = () => {
     this.setState({
       ...this.state,
       pageMode: pageMode.STEP1,
+      Phone: undefined,
     });
   };
   private FinishHandler = () => {
-    console.log(this.state);
+    console.log(this.state.form);
     
   };
   // private keyUpHandler(e) {
@@ -46,16 +54,22 @@ export class Register extends React.Component<RegisterProps, RegisterState> {
 
   //   }
   // }
-  private onChangeHandler1(e:any) {
+  private onChangeHandler1 = (e:any) => {
     this.setState({
       ...this.state,
       Name: e.target.value,
+      form: {
+        name: e.target.value
+      }
     });
   }
   private onChangeHandler2 = (e:any) => {
     this.setState({
       ...this.state,
       Phone: e.target.value,
+      form: {
+        phone: e.target.value,
+      }
     });
   };
 
@@ -64,8 +78,9 @@ export class Register extends React.Component<RegisterProps, RegisterState> {
       <>
         <input
           type="text"
+          value={this.state.Name}
           placeholder="enter your name"
-          onChange={(e) => this.onChangeHandler1}
+          onChange={this.onChangeHandler1}
           // onKeyUp={() => this.keyUpHandler()}
         />
         <button
@@ -84,9 +99,9 @@ export class Register extends React.Component<RegisterProps, RegisterState> {
     return (
       <>
         <input
-          type="number"
+          value={this.state.Phone}
           placeholder="enter your phone number"
-          onChange={() => this.onChangeHandler2}
+          onChange={this.onChangeHandler2}
           // onKeyUp={() => this.keyUpHandler()}
         />
         <button
