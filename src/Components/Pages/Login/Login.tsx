@@ -1,33 +1,60 @@
 import * as React from "react";
 
-interface LoginProps {}
+export interface LoginProps {}
 
-interface LoginState {}
-
-interface Ix {
-  x: {
-    phone?: number | undefined;
-    name: string;
-  };
+export interface LoginState {
+  val: string;
 }
 
 export class Login extends React.Component<LoginProps, LoginState> {
-  private mammad = () => {
-    let x: any = {
-      phone: 2,
-      // name: "saeed",
-    };
-    this.abbas(x);
-  };
-  private abbas = (x: Ix) => {
-    console.log(x);
+  state = {
+    val: "",
   };
 
-  componentDidMount = () => {
-    this.mammad();
+  private onchangeHandler = (e: any) => {
+    this.setState({
+      ...this.state,
+      val: e.target.value,
+    });
   };
+  private submitHandler = () => {
+    alert(this.state.val);
+  };
+  private onblurHandler = () => {
+    if (this.state.val == "") {
+      return <span>Please Fill The Input</span>;
+    }
+  };
+  private resetHandler() {
+    this.setState({val : ''})
+  }
 
   render() {
-    return <></>;
+    return (
+      <>
+        <input
+          type="text"
+          value={this.state.val}
+          onChange={this.onchangeHandler}
+          onBlur={this.onblurHandler}
+        />
+        {this.onblurHandler()}
+
+        <button // reset BTN
+          onClick={()=>{this.resetHandler()}}
+        >
+          reset
+        </button>
+
+        <button // submit BTN
+          disabled={this.state.val == "" ? true : false}
+          onClick={() => {
+            this.submitHandler();
+          }}
+        >
+          submit
+        </button>
+      </>
+    );
   }
 }
