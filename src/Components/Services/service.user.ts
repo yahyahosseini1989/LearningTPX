@@ -8,4 +8,7 @@ export class UserService {
     postData(data:IUser): Promise<{data:Array<IUser>}>{
         return Axios.post("https://next.json-generator.com/api/json/get/NJEkPer9u", data)
     }
+    deleteData(id:any): Promise<any>{
+        return Axios.delete("https://next.json-generator.com/api/json/get/NJEkPer9u", id)
+    }
 }

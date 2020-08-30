@@ -24,6 +24,9 @@ export class Login extends React.Component<LoginProps, LoginState> {
     if (this.state.val == "") {
       return <span>Please Fill The Input</span>;
     }
+    else{
+      return <br />;
+    }
   };
   private resetHandler() {
     this.setState({val : ''})

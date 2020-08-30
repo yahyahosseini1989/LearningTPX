@@ -1,11 +1,11 @@
 export interface IUser{
-    id: string;
+    id?: string;
     age: number;
     eyeColor: string;
-    name: {
+    name?: {
     first: string;
     last: string;
     };
     address: string;
-    tags: Array<string>;
+    tags?: Array<string>;
 }
