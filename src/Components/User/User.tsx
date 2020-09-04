@@ -5,8 +5,11 @@ import Modal from "react-bootstrap/esm/Modal";
 import button from "react-bootstrap/esm/button";
 import DeleteModal from './../Pages/Others/DeleteModal/DeleteModal';
 import Input from './../Pages/Others/Input/Input';
+import { History } from "history";
 
-export interface UserProps { }
+export interface UserProps { 
+  history: History;
+}
 
 export interface UserState {
   users: IUser | any;
@@ -73,6 +76,10 @@ export class User extends React.Component<UserProps, UserState> {
     });
   }
 
+  private goToInput() {
+    this.props.history.push("/Input/MyDropDown")
+  }
+
   rowID: any = "";
   private handleDelete = (ID: string) => {
     this.setState({
@@ -118,6 +125,9 @@ export class User extends React.Component<UserProps, UserState> {
   render() {
     return (
       <>
+      <button 
+      onClick={()=>{this.goToInput()}}
+      >gotoInput</button>
         <Modal
           show={this.state.showModal}
           onHide={() => {
@@ -241,6 +251,7 @@ export class User extends React.Component<UserProps, UserState> {
           name={"inputName"}
           disabled={true}
         />
+        
       </>
     );
   }

@@ -38,6 +38,7 @@ class DeleteModal extends React.Component<DeleteModalProps, DeleteModalState> {
               onClick={() => { this.props.onDelete(this.props.rowID) }}
             >
               Applybhdfhh
+              
             </button>
           </Modal.Footer>
         </Modal>
