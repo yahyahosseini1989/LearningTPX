@@ -17,38 +17,37 @@ class HeaderNav extends React.Component<HeaderNavProps, HeaderNavState> {
         return (
             <>
                 {/* <Navbar bg="primary" variant="dark">
-                    <Navbar.Brand href="#home">React TSX</Navbar.Brand>
+                    <Navbar.Brand href="/Home">React TSX</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        <Nav.Link href="/Home">Home</Nav.Link>
+                        <Nav.Link href="/Users">Users</Nav.Link>
+                        <Nav.Link href="/Register">Register</Nav.Link>
+                        <Nav.Link href="/InvateFriends">Invate Friends</Nav.Link>
+                        <Nav.Link href="/Buttons">Buttons</Nav.Link>
+                        <Nav.Link href="/Uploaders">Uploaders</Nav.Link>
                     </Nav>
                 </Navbar> */}
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
                     <div className="container">
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav ml-auto">
+                            <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a href="/" >
-                                        Home
-                                    </a>
+                                    <Link to="/Home" className="nav-link" >Home</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/Users" >
-                                        Users
-                                    </a>
+                                    <Link to="/Users" className="nav-link" >Users</Link>
                                 </li>
                                 <li className="nav-item">
-                                    2
+                                    <Link to="/Register" className="nav-link" >Register</Link>
                                 </li>
                                 <li className="nav-item">
-                                    3
+                                    <Link to="/InvateFriends" className="nav-link" >Invate Friends</Link>
                                 </li>
                                 <li className="nav-item">
-                                    4
+                                    <Link to="/Charge" className="nav-link" >Charge</Link>
                                 </li>
                                 <li className="nav-item">
-                                    5
+                                    <Link to="/Uploaders" className="nav-link" >Uploaders</Link>
                                 </li>
                             </ul>
                         </div>
