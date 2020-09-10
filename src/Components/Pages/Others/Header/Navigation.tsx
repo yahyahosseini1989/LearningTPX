@@ -32,7 +32,7 @@ class HeaderNav extends React.Component<HeaderNavProps, HeaderNavState> {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <Link to="/Home" className="nav-link" >Home</Link>
+                                    <Link to="/" className="nav-link" >Home</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link to="/Users" className="nav-link" >Users</Link>
@@ -41,7 +41,7 @@ class HeaderNav extends React.Component<HeaderNavProps, HeaderNavState> {
                                     <Link to="/Register" className="nav-link" >Register</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/InvateFriends" className="nav-link" >Invate Friends</Link>
+                                    <Link to="/MyForm" className="nav-link" >Forms</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link to="/Charge" className="nav-link" >Charge</Link>
