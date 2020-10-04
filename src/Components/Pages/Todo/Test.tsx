@@ -1,6 +1,5 @@
 import React from "react";
-import Alert from 'react-bootstrap/Alert'
-import Button from "react-bootstrap/esm/button";
+import Alert from 'react-bootstrap/Alert';
 
 export interface TestProps {}
 

@@ -37,10 +37,10 @@ class Charge extends React.Component<ChargeProps, ChargeState> {
             showModal: false,
         })
     }
-    private handleCharge(e: any) {
+    private handleCharge(item: any, index: number) {
         this.setState({
             ...this.state,
-            charge: e.target.value,
+            charge: item,
         })
 
     }
@@ -63,35 +63,16 @@ class Charge extends React.Component<ChargeProps, ChargeState> {
 
                     <Modal.Body>
 
-                        <p className="text-right">شماره همراه خود را وارد کنید</p>
-                        <button
-                            className="btn btn-secondary w-50 p-2 mb-4 border rounded shadow-sm"
-                            value="2000"
-                            onClick={(e) => { this.handleCharge(e) }}
-                        >
-                            2000
-                        </button>
-                        <button
-                            className="btn btn-secondary w-50 p-2 mb-4 border rounded shadow-sm"
-                            value="5000"
-                            onClick={(e) => { this.handleCharge(e) }}
-                        >
-                            5000
-                        </button>
-                        <button
-                            className="btn btn-secondary w-50 p-2 mb-4 border rounded shadow-sm"
-                            value="10000"
-                            onClick={(e) => { this.handleCharge(e) }}
-                        >
-                            10000
-                        </button>
-                        <button
-                            className="btn btn-secondary w-50 p-2 mb-4 border rounded shadow-sm"
-                            value="20000"
-                            onClick={(e) => { this.handleCharge(e) }}
-                        >
-                            20000
-                        </button>
+                        <p className="text-right">شماره همراه خود را وارد کنید</p>                        {
+                            [1000, 2000, 5000, 10000].map((item, index) => (
+                                <div className="btn btn-secondary w-50 p-2 mb-4 border rounded shadow-sm"
+                                    onClick={() => { this.handleCharge(item, index) }}
+                                    key={index}
+                                >
+                                    {item}
+                                </div>
+                            ))
+                        }
                         <input
                             className="d-block w-100 p-2 mb-4 border rounded shadow-sm"
                             type="number"

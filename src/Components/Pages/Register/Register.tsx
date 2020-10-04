@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export interface RegisterProps {}
+export interface RegisterProps { }
 
 export interface RegisterState {
   val: string;
@@ -47,14 +47,14 @@ export class Register extends React.Component<RegisterProps, RegisterState> {
   };
   private FinishHandler = () => {
     console.log(this.state.form);
-    
+
   };
   // private keyUpHandler(e) {
   //   if (e.keyCode === 13) {
 
   //   }
   // }
-  private onChangeHandler1 = (e:any) => {
+  private onChangeHandler1 = (e: any) => {
     this.setState({
       ...this.state,
       Name: e.target.value,
@@ -63,7 +63,7 @@ export class Register extends React.Component<RegisterProps, RegisterState> {
       }
     });
   }
-  private onChangeHandler2 = (e:any) => {
+  private onChangeHandler2 = (e: any) => {
     this.setState({
       ...this.state,
       Phone: e.target.value,
@@ -81,7 +81,7 @@ export class Register extends React.Component<RegisterProps, RegisterState> {
           value={this.state.Name}
           placeholder="enter your name"
           onChange={this.onChangeHandler1}
-          // onKeyUp={() => this.keyUpHandler()}
+        // onKeyUp={() => this.keyUpHandler()}
         />
         <button
           // disabled = {}
@@ -102,7 +102,7 @@ export class Register extends React.Component<RegisterProps, RegisterState> {
           value={this.state.Phone}
           placeholder="enter your phone number"
           onChange={this.onChangeHandler2}
-          // onKeyUp={() => this.keyUpHandler()}
+        // onKeyUp={() => this.keyUpHandler()}
         />
         <button
           // disabled = {}

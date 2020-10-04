@@ -1,212 +1,123 @@
 import React from 'react';
+import Input from '../Input/Input';
+import { Pattern } from '../../../Config/Pattern';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 export interface MyFormProps {
 
 }
 
 export interface MyFormState {
-
+    val: string;
+    setValue: string | object;
+    handleSubmit: boolean;
 }
 
 class MyForm extends React.Component<MyFormProps, MyFormState> {
+
+    state = {
+        val: "",
+        setValue: {
+            inputEmail: "",
+            inputPhone: "",
+            inputPass: "",
+        },
+        handleSubmit: false,
+    }
+
+    private handleChange = (e: any, ElName: "inputEmail" | "inputPhone" | "inputPass") => {
+        console.log(e, ElName);
+        this.setState({
+            ...this.state,
+            setValue: {
+                ...this.state.setValue,
+                [ElName]: e,
+            }
+        })
+    };
+    private handleSubmit() {
+        this.hendleButton() 
+    }
+
+    private hendleButton() {
+        // toast.success(`عملیات با موفقیت انجام گردید`, {
+        //     position: "top-center",
+        //     autoClose: 2000,
+        //     hideProgressBar: false,
+        //     closeOnClick: true,
+        //     pauseOnHover: true,
+        //     draggable: true,
+        // });
+        toast.error("اعمال با مشکل مواجه شد", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+        })
+        // let x = 0;
+        // let y = x + " " +"mammad";
+        // let z = `${x} mammad ${y}`;
+
+        // console.log( z);
+        
+    }
+
     render() {
         return (
             <>
+                <div className="container">
+                    <h2>Register Form</h2>
 
+                    <Input
+                        onChange={(e: any) => { this.handleChange(e.target.value, "inputEmail") }}
+                        value={this.state.setValue.inputEmail}
+                        type={"text"}
+                        className={"form-control"}
+                        placeholder={"Enter your email"}
+                        required={true}
+                        label={"Email"}
+                        name={"inputName"}
+                        pattern={Pattern.email}
+                    />
 
-                <div className="testbox">
-                    <form action="/">
-                        <div className="banner">
-                            <h1>Research Application Form</h1>
-                        </div>
-                        <div className="item">
-                            <p>Title of Research Proposal</p>
-                            <input type="text" name="name" />
-                        </div>
-                        <div className="item">
-                            <p>Date</p>
-                            <input type="date" name="bdate" required />
-                            <i className="fas fa-calendar-alt"></i>
-                        </div>
-                        <h5>1. Principal Investigator:</h5>
-                        <div className="item">
-                            <p>Name and Credentials<span className="required">*</span></p>
-                            <input type="text" name="name" required />
-                        </div>
-                        <div className="item">
-                            <p>Mailing Address<span className="required">*</span></p>
-                            <input type="text" name="name" placeholder="Street address" required />
-                            <input type="text" name="name" placeholder="Street address line 2" required />
-                            <div className="city-item">
-                                <input type="text" name="name" placeholder="City" required />
-                                <input type="text" name="name" placeholder="Region" required />
-                                <input type="text" name="name" placeholder="Postal / Zip code" required />
-                                <select required>
-                                    <option value="">Country</option>
-                                    <option value="1">Russia</option>
-                                    <option value="2">Germany</option>
-                                    <option value="3">France</option>
-                                    <option value="4">Armenia</option>
-                                    <option value="5">USA</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="item">
-                            <p>Phone<span className="required">*</span></p>
-                            <input type="text" name="name" required />
-                        </div>
-                        <div className="item">
-                            <p>Fax</p>
-                            <input type="text" name="name" />
-                        </div>
-                        <div className="item">
-                            <p>Email<span className="required">*</span></p>
-                            <input type="text" name="name" required />
-                        </div>
-                        <h5>2. Co-Investigator:</h5>
-                        <div className="item">
-                            <p>Name and Credentials<span className="required">*</span></p>
-                            <input type="text" name="name" required />
-                        </div>
-                        <div className="item">
-                            <p>Mailing Address<span className="required">*</span></p>
-                            <input type="text" name="name" placeholder="Street address" required />
-                            <input type="text" name="name" placeholder="Street address line 2" required />
-                            <div className="city-item">
-                                <input type="text" name="name" placeholder="City" required />
-                                <input type="text" name="name" placeholder="Region" required />
-                                <input type="text" name="name" placeholder="Postal / Zip code" required />
-                                <select required>
-                                    <option value="">Country</option>
-                                    <option value="1">Russia</option>
-                                    <option value="2">Germany</option>
-                                    <option value="3">France</option>
-                                    <option value="4">Armenia</option>
-                                    <option value="5">USA</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="item">
-                            <p>Phone<span className="required">*</span></p>
-                            <input type="text" name="name" required />
-                        </div>
-                        <div className="item">
-                            <p>Fax</p>
-                            <input type="text" name="name" />
-                        </div>
-                        <div className="item">
-                            <p>Email<span className="required">*</span></p>
-                            <input type="text" name="name" required />
-                        </div>
-                        <h5>3. Institute Member</h5>
-                        <div className="question">
-                            <p>Principle investigator:<span className="required">*</span></p>
-                            <div className="question-answer">
-                                <input type="radio" value="none" id="radio_1" name="investigator" required />
-                                <label htmlFor="radio_1" className="radio"><span>Yes</span></label>
-                                <input type="radio" value="none" id="radio_2" name="investigator" required />
-                                <label htmlFor="radio_2" className="radio"><span>No</span></label>
-                            </div>
-                        </div>
-                        <div className="question">
-                            <p>Co-Investigator:<span className="required">*</span></p>
-                            <div className="question-answer">
-                                <input type="radio" value="none" id="radio_3" name="co-investigator" required />
-                                <label htmlFor="radio_3" className="radio"><span>Yes</span></label>
-                                <input type="radio" value="none" id="radio_4" name="co-investigator" required />
-                                <label htmlFor="radio_4" className="radio"><span>No</span></label>
-                            </div>
-                        </div>
-                        <h5>4. Have you applied for or are you now receiving funding support for this research?</h5>
-                        <div className="question">
-                            <p><span className="required">*</span></p>
-                            <div className="question-answer">
-                                <input type="radio" value="none" id="radio_5" name="research" required />
-                                <label htmlFor="radio_5" className="radio"><span>Yes</span></label>
-                                <input type="radio" value="none" id="radio_6" name="research" required />
-                                <label htmlFor="radio_6" className="radio"><span>No</span></label>
-                            </div>
-                        </div>
-                        <h5>5. IRB:</h5>
-                        <div className="question">
-                            <p>Have you applied for IRB review:</p>
-                            <div className="question-answer">
-                                <input type="radio" value="none" id="radio_7" name="IRB" />
-                                <label htmlFor="radio_7" className="radio"><span>Yes</span></label>
-                                <input type="radio" value="none" id="radio_8" name="IRB" />
-                                <label htmlFor="radio_8" className="radio"><span>No</span></label>
-                            </div>
-                        </div>
-                        <h5>6. Students only:</h5>
-                        <div className="item">
-                            <p>Name of research advisor:</p>
-                            <input type="text" name="name" />
-                        </div>
-                        <div className="item">
-                            <p>Include a letter of support from advisor in application packet.<span className="required">*</span></p>
-                            <textarea required></textarea>
-                        </div>
-                        <div className="question">
-                            <p>Research Application Checklist:<span className="required">*</span></p>
-                            <small>Please include the following in your application.</small>
-                            <div className="question-answer checkbox-item">
-                                <div>
-                                    <input type="checkbox" value="none" id="check_1" name="checklist" required />
-                                    <label htmlFor="check_1" className="check"><span>Proposal Cover Form</span></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" value="none" id="check_2" name="checklist" required />
-                                    <label htmlFor="check_2" className="check"><span>Abstract</span></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" value="none" id="check_3" name="checklist" required />
-                                    <label htmlFor="check_3" className="check"><span>Narrative</span></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" value="none" id="check_4" name="checklist" required />
-                                    <label htmlFor="check_4" className="check"><span>Budget and Budget Justification</span></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" value="none" id="check_5" name="checklist" required />
-                                    <label htmlFor="check_5" className="check"><span>Timeframe</span></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" value="none" id="check_6" name="checklist" required />
-                                    <label htmlFor="check_6" className="check"><span>References</span></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" value="none" id="check_7" name="checklist" required />
-                                    <label htmlFor="check_7" className="check"><span>Appendices</span></label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" value="none" id="check_8" name="checklist" required />
-                                    <label htmlFor="check_8" className="check"><span>Bio Sketch</span></label>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <div className="question">
-                            <p>If funding is approved I agree to do the following:<span className="required">*</span></p>
-                            <div className="question-answer checkbox-item">
-                                <div>
-                                    <input type="checkbox" value="none" id="check_9" name="check" required />
-                                    <label htmlFor="check_9" className="check"><span>I agree to the <a href="https://www.w3docs.com/privacy-policy">terms of service.</a></span></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item">
-                            <p>Electronic signature<span className="required">*</span></p>
-                            <textarea required></textarea>
-                        </div>
-                        <div className="btn-block">
-                            <button type="submit" >Send Application</button>
-                        </div>
-                    </form>
+                    <Input
+                        onChange={(e: any) => { this.handleChange(e.target.value, "inputPhone") }}
+                        value={this.state.setValue.inputPhone}
+                        type={"text"}
+                        className={"form-control"}
+                        placeholder={"Enter your phone"}
+                        required={true}
+                        label={"phone"}
+                        name={"inputName"}
+                        pattern={Pattern.phone}
+                    />
+                    <Input
+                        onChange={(e: any) => { this.handleChange(e.target.value, "inputPass") }}
+                        value={this.state.setValue.inputPass}
+                        type={"text"}
+                        className={"form-control"}
+                        placeholder={"Enter your password"}
+                        required={true}
+                        label={"password"}
+                        name={"inputName"}
+                        pattern={Pattern.password}
+                        submit={this.state.handleSubmit}
+                    />
+
+                    <button
+                        
+                        className="btn btn-success"
+                        onClick={() => {this.handleSubmit()}}
+                    >
+                        ارسال
+                    </button>
+
                 </div>
-
             </>
         );
     }
 }
-
 export default MyForm;

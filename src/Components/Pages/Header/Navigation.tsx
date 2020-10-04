@@ -1,8 +1,5 @@
 import * as React from 'react';
-
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export interface HeaderNavProps {
 
@@ -38,11 +35,11 @@ class HeaderNav extends React.Component<HeaderNavProps, HeaderNavState> {
                                     <Link to="/Users" className="nav-link" >Users</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/Register" className="nav-link" >Register</Link>
-                                </li>
-                                <li className="nav-item">
                                     <Link to="/MyForm" className="nav-link" >Forms</Link>
-                                </li>
+                                </li>   
+                                <li className="nav-item">
+                                    <Link to="/MyForm2" className="nav-link" >MyForm2</Link>
+                                </li>   
                                 <li className="nav-item">
                                     <Link to="/Charge" className="nav-link" >Charge</Link>
                                 </li>

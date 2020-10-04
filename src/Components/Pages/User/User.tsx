@@ -1,11 +1,11 @@
 import * as React from "react";
-import { UserService } from "../Services/service.user";
-import { IUser } from "./../Models/model.user";
+import { UserService } from "../../Services/service.user";
+import { IUser } from "../../Models/model.user";
 import Modal from "react-bootstrap/esm/Modal";
-import button from "react-bootstrap/esm/button";
-import DeleteModal from './../Pages/Others/DeleteModal/DeleteModal';
-import Input from './../Pages/Others/Input/Input';
+import DeleteModal from '../Others/DeleteModal/DeleteModal';
+import Input from '../Others/Input/Input';
 import { History } from "history";
+import { Pattern } from '../../Config/Pattern';
 
 export interface UserProps { 
   history: History;
@@ -119,8 +119,7 @@ export class User extends React.Component<UserProps, UserState> {
   }
   private async onclickHandler() {
     let x = this.state.sendData;
-    const post = await this.userService.postData(x);
-
+    await this.userService.postData(x);
   }
   render() {
     return (
@@ -180,6 +179,13 @@ export class User extends React.Component<UserProps, UserState> {
           </Modal.Footer>
         </Modal>
 
+        <DeleteModal
+          onDelete={(rowID: string) => { this.removeItem(rowID) }}
+          rowID={this.rowID}
+          onShow={this.state.onToggle}
+          onHide={() => { this.handleCloseModal() }}
+        />
+
         <div className="container">
           <div className="row">
             <nav className="navbar navbar-expand-sm bg-light w-100 p-3 d-flex align-items-start justify-content-around ">
@@ -234,12 +240,7 @@ export class User extends React.Component<UserProps, UserState> {
           </div>
         </div>
 
-        <DeleteModal
-          onDelete={(rowID: string) => { this.removeItem(rowID) }}
-          rowID={this.rowID}
-          onShow={this.state.onToggle}
-          onHide={() => { this.handleCloseModal() }}
-        />
+
 
         <Input
           onChange={() => {this.handleChange()}}
@@ -250,6 +251,7 @@ export class User extends React.Component<UserProps, UserState> {
           label={"inputLabel"}
           name={"inputName"}
           disabled={true}
+          pattern={Pattern.email}
         />
         
       </>
