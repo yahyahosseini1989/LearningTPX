@@ -46,6 +46,15 @@ class HeaderNav extends React.Component<HeaderNavProps, HeaderNavState> {
                                 <li className="nav-item">
                                     <Link to="/Uploaders" className="nav-link" >Uploaders</Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link to="/Hook" className="nav-link" >Hook</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to="/Formik" className="nav-link" >Formik</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to="/Formik2" className="nav-link" >Formik2</Link>
+                                </li>
                             </ul>
                         </div>
                     </div>

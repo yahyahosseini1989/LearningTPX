@@ -104,11 +104,10 @@ class MyForm extends React.Component<MyFormProps, MyFormState> {
                         label={"password"}
                         name={"inputName"}
                         pattern={Pattern.password}
-                        submit={this.state.handleSubmit}
+                        // submit={this.state.handleSubmit}
                     />
 
                     <button
-                        
                         className="btn btn-success"
                         onClick={() => {this.handleSubmit()}}
                     >

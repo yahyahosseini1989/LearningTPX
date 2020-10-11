@@ -40,7 +40,6 @@ class Input extends React.Component<InputProps, InputState> {
         })
     }
     private testPattern() {
-
         let checkValidate = this.props.pattern;
         let Value = this.props.value;
 

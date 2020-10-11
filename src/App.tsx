@@ -10,6 +10,9 @@ import MyDropDown from './Components/Pages/Others/DropDown/Dropdown';
 import Charge from './Components/Pages/Charge/Charge';
 import MyForm from './Components/Pages/Others/Forms/MyForm';
 import MyForm2 from './Components/Pages/Others/Forms/MyForm2';
+import Hook from './Components/Pages/Others/Hook/Hook';
+import { FormikElement } from './Components/Pages/Others/FormikElement/FormikElement';
+import FormikElement2 from './Components/Pages/Others/FormikElement/FormikElement2';
 
 
 export default class App extends React.Component<{}, {}> {
@@ -24,6 +27,9 @@ export default class App extends React.Component<{}, {}> {
           <Route component={Charge} path="/Charge" exact  />
           <Route component={MyForm} path="/MyForm" exact  />
           <Route component={MyForm2} path="/MyForm2" exact  />
+          <Route component={Hook} path="/Hook" exact  />
+          <Route component={FormikElement} path="/Formik" exact  />
+          <Route component={FormikElement2} path="/Formik2" exact  />
         </BrowserRouter>
       </>
     )
